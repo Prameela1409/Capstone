@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Results</title>
+  <link rel='stylesheet' href="/static/styles.css">
+</head>
+<body>
+  <% if (books.length > 0) { %>
+    <div class="container">
+        <h1>Search Results</h1>
+      <% books.forEach(book => { %>
+        <li>
+          <strong>Title:</strong> <%= book.title %><br>
+          <% if (book.subtitle) { %>
+            <strong>Subtitle:</strong> <%= book.subtitle %><br>
+          <% } %>
+          <% if (book.publisher) { %>
+            <strong>Publisher:</strong> <%= book.publisher %><br>
+          <% } %>
+          <% if (book.publishedDate) { %>
+            <strong>Published Date:</strong> <%= book.publishedDate %><br>
+          <% } %>
+          <% if (book.authors) { %>
+            <strong>Author</strong>:</strong> <%= book.authors %><br>
+          <% } %>
+          <% if (book.description) { %>
+            <strong>Description</strong>:</strong> <%= book.description %><br>
+          <% } %>
+          <a href="/dashboard">Go back</a>
+        </li>
+      <% }); %>
+    </div>
+  <% } else { %>
+    <p>No books found</p>
+  <% } %>
+</body>
+</html>
